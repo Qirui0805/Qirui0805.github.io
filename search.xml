@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>面试高频算法</title>
+    <url>/2020/04/30/%E9%9D%A2%E8%AF%95%E9%AB%98%E9%A2%91/</url>
+    <content><![CDATA[<h3 id="LeetCode-718-Maximum-Length-of-Repeated-Subarray-Substring"><a href="#LeetCode-718-Maximum-Length-of-Repeated-Subarray-Substring" class="headerlink" title="LeetCode 718. Maximum Length of Repeated Subarray (Substring)"></a>LeetCode 718. Maximum Length of Repeated Subarray (Substring)</h3><p><a href="https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/" target="_blank" rel="noopener">题目</a><br>给两个整数数组 A 和 B ，返回两个数组中公共的、长度最长的子数组的长度。<br>同样可作为最长重复子串</p>
+<p>思路：找到两字符串中相同的字符后往后匹配，更新max值。使用二维dp来记录匹配情况，<code>dp[i][j] = a[i] == b[j] ? dp[i - 1][j - 1] + 1 : 0</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLength</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//dp数组第一行第一列空出来，就省去单独初始化</span></span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[A.length + <span class="number">1</span>][B.length + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; dp[i].length; j++) &#123;</span><br><span class="line">                dp[i][j] = A[i - <span class="number">1</span>] == B[j - <span class="number">1</span>] ? <span class="number">1</span> + dp[i - <span class="number">1</span>][j - <span class="number">1</span>] : <span class="number">0</span>;</span><br><span class="line">                max = Math.max(dp[i][j], max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+</search>
